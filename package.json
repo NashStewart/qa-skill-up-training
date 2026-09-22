@@ -1,0 +1,28 @@
+{
+  "name": "qa-skill-up-training",
+  "version": "1.0.0",
+  "description": "JavaScript/TypeScript training exercises for manual testers learning Playwright",
+  "private": true,
+  "scripts": {
+    "typescript:variables": "ts-node exercises/typescript/01-variables.ts",
+    "typescript:datatypes": "ts-node exercises/typescript/02-datatypes.ts",
+    "typescript:operators": "ts-node exercises/typescript/03-operators.ts",
+    "typescript:functions": "ts-node exercises/typescript/04-functions.ts",
+    "typescript:arrays": "ts-node exercises/typescript/05-arrays.ts",
+    "typescript:objects": "ts-node exercises/typescript/06-objects.ts",
+    "typescript:flowcontrol": "ts-node exercises/typescript/07-flowcontrol.ts",
+    "typescript:interfaces": "ts-node exercises/typescript/08-interfaces.ts",
+    "typescript:async": "ts-node exercises/typescript/09-async.ts",
+    "typescript:errors": "ts-node exercises/typescript/10-errors.ts",
+    "typescript:classes": "ts-node exercises/typescript/11-classes.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/node": "^26.6.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
