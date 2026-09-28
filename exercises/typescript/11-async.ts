@@ -1,5 +1,13 @@
-// Async/Await & Promises: an `async` function can pause execution at an
-// `await` expression until the awaited Promise resolves.
+// Async/Await & Promises: a Promise represents a value that isn't ready
+// yet — it starts `pending`, then settles as either `fulfilled` (success)
+// or `rejected` (failure). An `async` function can pause at an `await`
+// expression until the Promise it's awaiting settles, then continues with
+// the resolved value.
+//
+// You'll sometimes see Promises consumed the older way, with `.then()`/
+// `.catch()` instead of `await` — recognize it if you run into it, but you
+// won't need to write it yourself:
+//   fakeApiCall('/login').then((response) => console.log(response));
 
 // Command to run this exercise: npm run typescript:async
 
