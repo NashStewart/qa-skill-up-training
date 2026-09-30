@@ -1,12 +1,26 @@
 import { defineConfig, devices } from '@playwright/test';
 
+// Environments of the Toolshop site, chosen with the ENV variable (default: prod).
+const TOOLSHOP_ENVS = {
+  prod: 'https://practicesoftwaretesting.com',
+  bugs: 'https://with-bugs.practicesoftwaretesting.com',
+} as const;
+
+type EnvName = keyof typeof TOOLSHOP_ENVS;
+
+const env = (process.env.ENV ?? 'prod') as EnvName;
+
+if (!(env in TOOLSHOP_ENVS)) {
+  throw new Error(`Unknown ENV "${env}". Valid options: ${Object.keys(TOOLSHOP_ENVS).join(', ')}`);
+}
+
 const SITES = {
   qaplayground: {
     baseURL: 'https://qaplayground.com/',
     testDir: './tests/fundamentals',
   },
-  orangehrm: {
-    baseURL: 'https://opensource-demo.orangehrmlive.com',
+  toolshop: {
+    baseURL: TOOLSHOP_ENVS[env],
     testDir: './tests/architecture',
   },
 } as const;
@@ -31,9 +45,16 @@ export default defineConfig({
     trace: 'on-first-retry',
   },
   projects: [
+    // Runs *.setup.ts files (like the Authentication module's login) before
+    // any project that lists it in `dependencies`.
+    {
+      name: 'setup',
+      testMatch: /.*\.setup\.ts/,
+    },
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
+      dependencies: ['setup'],
     },
     {
       name: 'webkit',
