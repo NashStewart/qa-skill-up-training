@@ -1,8 +1,8 @@
 # Bug Report: Log In button does nothing
 
 Reported by: TODO
-Severity: TODO
-Status: Open
+Severity: Critical
+Status: In Progress
 
 ## Environment
 
@@ -16,8 +16,8 @@ TODO
 
 ## Expected Result
 
-TODO
+The user is taken to their account page.
 
 ## Actual Result
 
-Nothing happens. No error message is shown.
+Nothing happens. No error message is shown. The browser console shows a 500 error from the login API.
